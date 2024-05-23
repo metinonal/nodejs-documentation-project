@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- document.documentHeader %> | Metin Önal</title>
+    <!-- CSS Start -->
+    <%- include("partials/assets/css") %>
+        <!-- CSS End -->
+        <style>
+            img:not(#logo){
+                max-width: 100%;
+                height: auto;
+            }
+        </style>
+</head>
+
+
+<body class="loading" data-layout-color="light" data-leftbar-theme="dark" data-layout-mode="fluid"
+    data-rightbar-onstart="true">
+    <div class="wrapper">
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <%- include("partials/main-partials/left-sidebar") %>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Topbar Start -->
+                    <%- include("partials/main-partials/topbar") %>
+                        <!-- end Topbar -->
+
+                        <!-- Start Content-->
+                        <div class="container-fluid">
+
+                            <!-- start page title -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="page-title-box">
+                                        <h4 class="page-title"><%= document.documentHeader %></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end page title -->
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div id="document-content"></div>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                </div> <!-- end col -->
+                            </div>
+                            <!-- end row -->
+
+                        </div> <!-- container -->
+
+
+                </div>
+
+                <!-- Footer Start -->
+                <%- include("partials/main-partials/footer") %>
+                    <!-- end Footer -->
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Right Sidebar -->
+    <%- include("partials/main-partials/right-sidebar") %>
+        <!-- /End-bar -->
+
+        <!-- Scripts Start -->
+        <script>
+            // Veritabanından gelen HTML içeriğini document-content divine ekleme
+            document.getElementById('document-content').innerHTML = `<%- document.documentContent %>`;
+        </script>
+
+        <%- include("partials/assets/scripts") %>
+            <!-- Scripts End -->
+</body>
+
+</html>

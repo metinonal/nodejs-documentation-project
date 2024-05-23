@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yüklenen Dosyalar</title>
+    <!-- CSS Start -->
+    <%- include("partials/assets/css") %>
+        <!-- CSS End -->
+    <style>
+        .image-preview {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .image-container {
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        function selectFile(url) {
+            const funcNum = new URLSearchParams(window.location.search).get('CKEditorFuncNum');
+            window.opener.CKEDITOR.tools.callFunction(funcNum, url);
+            window.close();
+        }
+
+        function deleteFile(fileName) {
+            if (confirm('Bu dosyayı silmek istediğinizden emin misiniz?')) {
+                fetch('/delete-file', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ fileName: fileName })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Dosya silinemedi');
+                    }
+                    location.reload();
+                })
+                .catch(error => {
+                    console.error('Hata:', error);
+                    alert('Dosya silinirken bir hata oluştu');
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Yüklenen Dosyalar</h1>
+        <div class="row">
+            <% files.forEach(function(file) { %>
+                <div class="col-md-4 image-container">
+                    <div class="card">
+                        <img src="/uploads/<%= encodeURI(file) %>" class="card-img-top image-preview" alt="<%= file %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= file %></h5>
+                            <a href="javascript:selectFile('/uploads/<%= encodeURI(file) %>')" class="btn btn-primary">Seç</a>
+                            <button onclick="deleteFile('<%= file %>')" class="btn btn-danger">Sil</button>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+    <!-- Scripts Start -->
+    <%- include("partials/assets/scripts") %>
+    <!-- Scripts End -->
+</body>
+</html>

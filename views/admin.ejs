@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <!-- Bootstrap CSS -->
+    <%- include("partials/assets/css") %>
+</head>
+
+<body class="loading" data-layout-color="light" data-leftbar-theme="dark" data-layout-mode="fluid"
+    data-rightbar-onstart="true">
+    <div class="wrapper">
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <%- include("partials/main-partials/left-sidebar") %>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Topbar Start -->
+                    <%- include("partials/main-partials/topbar") %>
+                        <!-- end Topbar -->
+
+                        <!-- Start Content-->
+                        <div class="container-fluid">
+
+                            <!-- start page title -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="page-title-box">
+                                        <h4 class="page-title">Admin Panel</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end page title -->
+
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">Döküman Ekle</div>
+                                        <div class="card-body">
+                                            <form action="/admin/add-document" method="post">
+                                                <div class="form-group mb-3">
+                                                    <label for="documentHeader" class="form-label">Başlık:</label>
+                                                    <input type="text" id="documentHeader" class="form-control"
+                                                        name="documentHeader" required>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="documentHeader" class="form-label">İçerik:</label>
+                                                    <textarea class="form-control" id="documentContent"
+                                                        name="documentContent" rows="3"></textarea>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="documentWriter" class="form-label">Yazar:</label>
+                                                    <input type="text" id="documentWriter" class="form-control"
+                                                        name="documentWriter" required>
+                                                </div>
+                                                <div class="form-group mb-3 form-check form-switch">
+                                                    <label for="isMainDocument" class="form-check-label">Ana Başlık
+                                                        Mı?</label>
+                                                    <input type="checkbox" class="form-check-input" id="isMainDocument"
+                                                        name="isMainDocument"
+                                                        onclick="toggleElements('isMainDocument','etiketInput', 'ustDokuman' )">
+                                                </div>
+                                                <div class="form-group mb-3 form-check form-switch">
+                                                    <label for="documentIsActive" class="form-check-label">Aktif
+                                                        mi?</label>
+                                                    <input type="checkbox" class="form-check-input"
+                                                        id="documentIsActive" name="documentIsActive">
+                                                </div>
+                                                <div class="form-group mb-3" style="display: none;" id="etiketInput">
+                                                    <label for="documentsTitle" class="form-label">Etiket:</label>
+                                                    <input type="text" id="documentsTitle" class="form-control"
+                                                        name="documentsTitle">
+                                                </div>
+                                                <div class="form-group mb-3" id="ustDokuman">
+                                                    <label for="parentDocumentID" class="form-check-label">Üst Döküman:</label>
+                                                    <select class="form-control" id="parentDocumentID" name="parentDocumentID">
+                                                        <option value="0">Seçiniz</option>
+                                                        <% documents.forEach(parentDocument => { %>
+                                                            <% if (parentDocument.isMainDocument === 1) { %>
+                                                                <option value="<%= parentDocument.documentID %>">
+                                                                    <%= parentDocument.documentHeader %>
+                                                                </option>
+                                                            <% } %>
+                                                        <% }); %>
+                                                    </select>
+                                                </div>                                                
+                                                <button type="submit" class="btn btn-primary">Ekle</button>
+                                            </form>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+                                    <div class="card">
+                                        <div class="card-header">Döküman Listesi</div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-centered w-100 dt-responsive nowrap"
+                                                    id="products-datatable">
+                                                    <thead class="table-light">
+                                                        <tr>
+                                                            <th class="all">Başlık</th>
+                                                            <th>İçerik</th>
+                                                            <th>Eklenme Tarihi</th>
+                                                            <th>Yazar</th>
+                                                            <th>Etiket</th>
+                                                            <th>Statü</th>
+                                                            <th style="width: 85px;">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <% documents.forEach(document=> { %>
+                                                            <tr>
+                                                                <td>
+                                                                    <p class="m-0 d-inline-block align-middle font-16">
+                                                                        <a href="#" class="text-body">
+                                                                            <%= document.documentHeader %>
+                                                                        </a>
+                                                                    </p>
+                                                                </td>
+                                                                <td>
+                                                                    .
+                                                                </td>
+                                                                <td>
+                                                                    <%= document.formattedDate %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= document.documentWriter %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= document.documentsTitle %>
+                                                                </td>
+                                                                <td>
+                                                                    <% if (document.documentIsActive === 1) { %>
+                                                                        <span class="badge bg-success">Aktif</span>
+                                                                    <% } else if (document.documentIsActive === 0) { %>
+                                                                        <span class="badge bg-danger">Pasif</span>
+                                                                    <% } %>                                                                    
+                                                                </td>
+                                                                <td class="table-action" style="width: 10%;">
+                                                                    <a href="/<%= document.documentLink %>"
+                                                                        target="_blank" class="action-icon"> <i
+                                                                            class="mdi mdi-eye"></i></a>
+                                                                    <form
+                                                                        action="/admin/delete-document/<%= document.documentID %>"
+                                                                        method="post" style="display: inline;">
+                                                                        <button style="border: none; background: none;"
+                                                                            type="submit" class="action-icon"><i
+                                                                                class="mdi mdi-delete"></i></button>
+                                                                    </form>
+                                                                    <button style="border: none; background: none;"
+                                                                        class="action-icon" data-toggle="modal"
+                                                                        data-target="#updateModal<%= document.documentID %>"><i
+                                                                            class="mdi mdi-square-edit-outline"></i></button>
+                                                                </td>
+                                                            </tr>
+                                                            <% }); %>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div> <!-- end card-body-->
+                                    </div> <!-- end card-->
+
+                                </div> <!-- end col -->
+
+                            </div>
+                            <!-- end row -->
+
+
+                        </div> <!-- container -->
+
+                </div>
+
+                <!-- Footer Start -->
+                <%- include("partials/main-partials/footer") %>
+                    <!-- end Footer -->
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Right Sidebar -->
+    <%- include("partials/main-partials/right-sidebar") %>
+        <!-- /End-bar -->
+
+        <!-- Döküman Güncelleme Modali -->
+        <% documents.forEach(document=> { %>
+            <div class="modal fade" id="updateModal<%= document.documentID %>"
+                aria-labelledby="updateModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="updateModalLabel">Döküman Güncelle</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="updateForm<%= document.documentID %>"
+                                action="/admin/update-document/<%= document.documentID %>" method="post">
+                                <div class="mb-3">
+                                    <label for="updatedDocumentHeader" class="form-label">Başlık:</label>
+                                    <input type="text" class="form-control"
+                                        id="updatedDocumentHeader<%= document.documentID %>" name="documentHeader"
+                                        value="<%= document.documentHeader %>" required>
+                                </div>
+                                <div style="z-index: 999999999 !important;" class="mb-3">
+                                    <label for="updatedDocumentContent" class="form-label">İçerik:</label>
+                                    <textarea style="z-index: 999999999 !important;" class="form-control"
+                                        id="updatedDocumentContent<%= document.documentID %>" name="documentContent"
+                                        rows="3" required><%= document.documentContent %></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="updatedDocumentWriter" class="form-label">Yazar:</label>
+                                    <input type="text" class="form-control"
+                                        id="updatedDocumentWriter<%= document.documentID %>" name="documentWriter"
+                                        value="<%= document.documentWriter %>" required>
+                                </div>
+                                <div class="mb-3 form-check form-switch">
+                                    <label for="updatedisMainDocument" class="form-check-label">Ana Başlık Mı?</label>
+                                    <input type="checkbox" class="form-check-input"
+                                        id="updatedisMainDocument<%= document.documentID %>" name="isMainDocument"
+                                        onclick="toggleElements('updatedisMainDocument<%= document.documentID %>', 'updatedDocumentsTitle<%= document.documentID %>', 'updatedParentDocumentID<%= document.documentID %>')"
+                                        <% if (document.isMainDocument) { %>checked<% } %> >
+                                </div>
+                                <div class="mb-3 form-check form-switch">
+                                    <label for="updatedDocumentIsActive" class="form-check-label">Aktif mi?</label>
+                                    <input type="checkbox" class="form-check-input"
+                                        id="updatedDocumentIsActive<%= document.documentID %>" name="documentIsActive"
+                                        <% if (document.documentIsActive) { %>checked<% } %> >
+                                </div>
+                                <div class="mb-3" id="updateEtiketInput">
+                                    <label for="updatedDocumentsTitle" class="form-label">Etiket:</label>
+                                    <input type="text" class="form-control"
+                                        id="updatedDocumentsTitle<%= document.documentID %>" name="documentsTitle"
+                                        value="<%= document.documentsTitle %>">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="updatedParentDocumentID" class="form-label">Üst Döküman:</label>
+                                    <select class="form-control" id="updatedParentDocumentID<%= document.documentID %>"
+                                        name="parentDocumentID">
+                                        <option value="0">Seçiniz</option>
+                                        <% documents.forEach(parentDocument=> { %>
+                                            <% if (parentDocument.documentID !==document.documentID) { %>
+                                                <option value="<%= parentDocument.documentID %>">
+                                                    <%= parentDocument.documentHeader %>
+                                                </option>
+                                                <% } %>
+                                                    <% }); %>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Güncelle</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+
+                <!-- Scripts Start -->
+                <script>
+                    function toggleElements(checkboxId, target1Id, target2Id) {
+                        var checkbox = document.getElementById(checkboxId);
+                        var target1 = document.getElementById(target1Id);
+                        var target2 = document.getElementById(target2Id);
+
+                        checkbox.addEventListener('change', function () {
+                            if (this.checked) {
+                                target1.style.display = 'block';
+                                target2.style.display = 'none';
+                            } else {
+                                target1.style.display = 'none';
+                                target2.style.display = 'block';
+                            }
+                        });
+                    }
+                </script>
+                <%- include("partials/assets/scripts") %>
+                    <!-- Scripts End -->
+
+                    <script>
+                        // Döküman güncelleme formu açıldığında
+                        $('#updateModal<%= documents.documentID %>').on('shown.bs.modal', function () {
+                            // Dökümanın başlık ve içeriği modal inputlarına yazılır
+                            var documentID = '<%= documents.documentID %>';
+                            var documentHeader = '<%= documents.documentHeader %>';
+                            var documentContent = '<%= documents.documentContent %>';
+                            var documentWriter = '<%= documents.documentWriter %>';
+                            var documentIsActive = '<%= documents.documentIsActive %>';
+                            var isMainDocument = '<%= documents.isMainDocument %>';
+                            var parentDocumentID = '<%= documents.parentDocumentID %>';
+                            var documentsTitle = '<%= documents.documentsTitle %>';
+
+                            $('#updatedDocumentHeader' + documentID).val(documentHeader);
+                            $('#updatedDocumentContent' + documentID).val(documentContent);
+                            $('#updatedDocumentWriter' + documentID).val(documentWriter);
+                            $('#updatedDocumentIsActive' + documentID).prop('checked', documentIsActive);
+                            $('#updatedisMainDocument' + documentID).prop('checked', isMainDocument);
+                            $('#updatedDocumentsTitle' + documentID).val(documentsTitle);
+                            $('#updatedParentDocumentID<%= documents.documentID %> option').each(function () {
+                                if ($(this).val() === parentDocumentID) {
+                                    $(this).prop('selected', true);
+                                }
+                            });
+                        });
+                    </script>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            // Tüm <textarea> öğelerini bul
+                            var textareas = document.querySelectorAll('textarea');
+
+                            // Her bir <textarea> için CKEditor'u başlat
+                            textareas.forEach(function (textarea) {
+                                CKEDITOR.replace(textarea, {
+                                    filebrowserUploadUrl: '/upload',
+                                    filebrowserBrowseUrl: '/uploads'
+                                });
+                            });
+                        });
+                    </script>
+
+</body>
+</html>

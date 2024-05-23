@@ -1,0 +1,71 @@
+<div class="leftside-menu">
+
+    <!-- LOGO -->
+    <a href="/" class="logo text-center logo-light">
+        <span class="logo-lg">
+            <img id="logo" src="assets/images/logo.png" alt="" height="16">
+        </span>
+        <span class="logo-sm">
+            <img src="assets/images/logo_sm.png" alt="" height="16">
+        </span>
+    </a>
+
+    <!-- LOGO -->
+    <a href="/" class="logo text-center logo-dark">
+        <span class="logo-lg">
+            <img src="assets/images/logo-dark.png" alt="" height="16">
+        </span>
+        <span class="logo-sm">
+            <img src="assets/images/logo_sm_dark.png" alt="" height="16">
+        </span>
+    </a>
+
+    <div class="h-100" id="leftside-menu-container">
+
+        <!--- Sidemenu -->
+        <ul class="side-nav">
+            <!-- Ana başlık olarak parentDocumentID değeri 0 olan belgeler -->
+            <% const topLevelDocuments = documents.filter(document => document.parentDocumentID === 0); %>
+            <% topLevelDocuments.forEach(document => { %>
+                <% if (document.documentIsActive == 1) { %>
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#<%= document.documentLink %>" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                            <!-- <i class="mdi mdi-circle-medium"></i> -->
+                            <span>
+                                <%= document.documentHeader %>
+                            </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="<%= document.documentLink %>">
+                            <ul class="side-nav-second-level">
+                                <li>
+                                    <a href="/<%- document.documentLink %>">
+                                        <%= document.documentsTitle %>
+                                    </a>
+                                </li>
+                                <!-- İlgili ana dökümanın altındaki dökümanlar -->
+                                <% const subDocuments = documents.filter(subDocument => subDocument.parentDocumentID === document.documentID); %>
+                                <% subDocuments.forEach(subDocument => { %>
+                                    <% if (subDocument.documentIsActive == 1) { %>
+                                        <li>
+                                            <a href="/<%- subDocument.documentLink %>">
+                                                <%= subDocument.documentHeader %>
+                                            </a>
+                                        </li>
+                                    <% } %>
+                                <% }); %>
+                            </ul>
+                        </div>
+                    </li>
+                <% } %>
+            <% }); %>
+        </ul>
+        
+        <!-- End Sidebar -->
+
+        <div class="clearfix"></div>
+
+    </div>
+    <!-- Sidebar -left -->
+
+</div>
