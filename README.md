@@ -22,11 +22,8 @@
 
 
 <div align="center">
-  <sub>The ecommerce project. Built with ❤︎ by
-    <a href="https://github.com/RafaelGoulartB">Rafael Goulart</a> and
-    <a href="https://github.com/RafaelGoulartB/nodejs-ecommerce/graphs/contributors">
-      contributors
-    </a>
+  <sub>The documentation project. Built with ❤︎ by
+    <a href="https://github.com/metinonal">Metin Önal</a>
   </sub>
 </div>
 
