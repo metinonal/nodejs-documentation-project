@@ -1,7 +1,7 @@
 <h1 align="center">Documentation Website made with Node.js - MVC</h1>
 
 <p align="center">	
-   <a href="https://www.linkedin.com/in/metinonal3440/">
+   <a href="https://www.linkedin.com/in/metinonal3440/" target="_blank">
       <img alt="Rafael Goulart" style="width: auto; height: 20px" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/linkedin.svg" />
    </a>
   <a href="https://github.com/metinonal/nodejs-documentation-project#readme">
