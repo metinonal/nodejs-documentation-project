@@ -5,90 +5,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%- document.documentHeader %> | Metin Önal</title>
-    <!-- CSS Start -->
+    <!-- Include CSS assets / CSS varlıklarını dahil et -->
     <%- include("partials/assets/css") %>
-        <!-- CSS End -->
-        <style>
-            img:not(#logo){
-                max-width: 100%;
-                height: auto;
-            }
-        </style>
+    <style>
+        /* Ensure images resize properly except for the logo / Logo hariç tüm resimlerin düzgün boyutlanmasını sağlar */
+        img:not(#logo) {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
-
 
 <body class="loading" data-layout-color="light" data-leftbar-theme="dark" data-layout-mode="fluid"
     data-rightbar-onstart="true">
     <div class="wrapper">
 
-        <!-- ========== Left Sidebar Start ========== -->
+        <!-- Left Sidebar Start / Sol Kenar Çubuğu Başlangıcı -->
         <%- include("partials/main-partials/left-sidebar") %>
-            <!-- Left Sidebar End -->
+        <!-- Left Sidebar End / Sol Kenar Çubuğu Sonu -->
 
-            <!-- ============================================================== -->
-            <!-- Start Page Content here -->
-            <!-- ============================================================== -->
+        <!-- Start Page Content here / Sayfa İçeriği Başlangıcı -->
+        <div class="content-page">
+            <div class="content">
 
-            <div class="content-page">
-                <div class="content">
+                <!-- Topbar Start / Üst Çubuk Başlangıcı -->
+                <%- include("partials/main-partials/topbar") %>
+                <!-- Topbar End / Üst Çubuk Sonu -->
 
-                    <!-- Topbar Start -->
-                    <%- include("partials/main-partials/topbar") %>
-                        <!-- end Topbar -->
+                <!-- Start Content / İçerik Başlangıcı -->
+                <div class="container-fluid">
 
-                        <!-- Start Content-->
-                        <div class="container-fluid">
-
-                            <!-- start page title -->
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="page-title-box">
-                                        <h4 class="page-title"><%= document.documentHeader %></h4>
-                                    </div>
-                                </div>
+                    <!-- Start page title / Sayfa Başlığı Başlangıcı -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title"><%= document.documentHeader %></h4>
                             </div>
-                            <!-- end page title -->
+                        </div>
+                    </div>
+                    <!-- End page title / Sayfa Başlığı Sonu -->
 
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div id="document-content"></div>
-                                        </div> <!-- end card-body-->
-                                    </div> <!-- end card-->
-                                </div> <!-- end col -->
-                            </div>
-                            <!-- end row -->
+                    <!-- Content row start / İçerik satırı başlangıcı -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div id="document-content"></div>
+                                </div> <!-- end card-body / kart-gövde sonu -->
+                            </div> <!-- end card / kart sonu -->
+                        </div> <!-- end col / sütun sonu -->
+                    </div>
+                    <!-- Content row end / İçerik satırı sonu -->
 
-                        </div> <!-- container -->
+                </div> <!-- container / konteyner -->
 
+            </div> <!-- content / içerik -->
 
-                </div>
+            <!-- Footer Start / Altbilgi Başlangıcı -->
+            <%- include("partials/main-partials/footer") %>
+            <!-- Footer End / Altbilgi Sonu -->
 
-                <!-- Footer Start -->
-                <%- include("partials/main-partials/footer") %>
-                    <!-- end Footer -->
-
-            </div>
-
-            <!-- ============================================================== -->
-            <!-- End Page content -->
-            <!-- ============================================================== -->
+        </div> <!-- content-page / içerik sayfası sonu -->
+        <!-- End Page content / Sayfa içeriği sonu -->
     </div>
-    <!-- END wrapper -->
+    <!-- END wrapper / Kapsayıcı Sonu -->
 
-    <!-- Right Sidebar -->
+    <!-- Right Sidebar / Sağ Kenar Çubuğu -->
     <%- include("partials/main-partials/right-sidebar") %>
-        <!-- /End-bar -->
+    <!-- End-bar / Son Çubuk -->
 
-        <!-- Scripts Start -->
-        <script>
-            // Veritabanından gelen HTML içeriğini document-content divine ekleme
-            document.getElementById('document-content').innerHTML = `<%- document.documentContent %>`;
-        </script>
-
-        <%- include("partials/assets/scripts") %>
-            <!-- Scripts End -->
+    <!-- Include JavaScript assets / JavaScript varlıklarını dahil et -->
+    <script>
+        // Insert HTML content from the database into the document-content div / Veritabanından gelen HTML içeriğini document-content div'ine ekleme
+        document.getElementById('document-content').innerHTML = `<%- document.documentContent %>`;
+    </script>
+    <%- include("partials/assets/scripts") %>
 </body>
 
 </html>

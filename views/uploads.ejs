@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yüklenen Dosyalar</title>
-    <!-- CSS Start -->
+    <!-- Include CSS partials / CSS kısmi dosyalarını dahil et -->
     <%- include("partials/assets/css") %>
-        <!-- CSS End -->
     <style>
+        /* Styles for image preview and container / Resim önizleme ve konteyner için stiller */
         .image-preview {
             width: 100%;
             height: 200px;
@@ -18,12 +18,14 @@
         }
     </style>
     <script>
+        // Function to select a file for CKEditor / CKEditor için bir dosya seçme fonksiyonu
         function selectFile(url) {
             const funcNum = new URLSearchParams(window.location.search).get('CKEditorFuncNum');
             window.opener.CKEDITOR.tools.callFunction(funcNum, url);
             window.close();
         }
 
+        // Function to delete a file / Bir dosya silme fonksiyonu
         function deleteFile(fileName) {
             if (confirm('Bu dosyayı silmek istediğinizden emin misiniz?')) {
                 fetch('/delete-file', {
@@ -51,13 +53,17 @@
     <div class="container mt-4">
         <h1 class="mb-4">Yüklenen Dosyalar</h1>
         <div class="row">
+            <!-- Iterate over each file and display it / Her dosya üzerinde iterasyon yap ve görüntüle -->
             <% files.forEach(function(file) { %>
                 <div class="col-md-4 image-container">
                     <div class="card">
+                        <!-- Display image preview / Resim önizlemesini görüntüle -->
                         <img src="/uploads/<%= encodeURI(file) %>" class="card-img-top image-preview" alt="<%= file %>">
                         <div class="card-body">
                             <h5 class="card-title"><%= file %></h5>
+                            <!-- Button to select the file / Dosyayı seçmek için buton -->
                             <a href="javascript:selectFile('/uploads/<%= encodeURI(file) %>')" class="btn btn-primary">Seç</a>
+                            <!-- Button to delete the file / Dosyayı silmek için buton -->
                             <button onclick="deleteFile('<%= file %>')" class="btn btn-danger">Sil</button>
                         </div>
                     </div>
@@ -65,8 +71,7 @@
             <% }); %>
         </div>
     </div>
-    <!-- Scripts Start -->
+    <!-- Include scripts partials / Script kısmi dosyalarını dahil et -->
     <%- include("partials/assets/scripts") %>
-    <!-- Scripts End -->
 </body>
 </html>
