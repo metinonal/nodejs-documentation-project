@@ -2,20 +2,20 @@
 
 <p align="center">	
    <a href="https://www.linkedin.com/in/metinonal3440/">
-      <img alt="Rafael Goulart" style="width: auto; height: 20px" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/linkedin.svg" />
+      <img alt="Rafael Goulart" style="width: auto; height: 20px" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/linkedin.svg" />
    </a>
-  <a href="https://github.com/RafaelGoulartB/nodejs-ecommerce#readme">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-03B0E8.svg" target="_blank" />
+  <a href="https://github.com/metinonal/nodejs-documentation-project#readme">
+    <img alt="Documentation" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/documentation.svg" target="_blank" />
   </a>
-  <a href="https://github.com/RafaelGoulartB/nodejs-ecommerce/graphs/commit-activity">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-03B0E8.svg" target="_blank" />
+  <a href="https://github.com/metinonal/nodejs-documentation-project/graphs/commit-activity">
+    <img alt="Maintenance" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/maintained.svg" target="_blank" />
   </a>
-  <a href="https://github.com/RafaelGoulartB/nodejs-ecommerce/blob/master/LICENSE">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-03B0E8.svg" target="_blank" />
+  <a href="https://github.com/metinonal/nodejs-documentation-project/blob/main/LICENSE">
+    <img alt="License: MIT" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/license.svg" target="_blank" />
   </a>
-  <img alt="GitHub Pull Requests" src="https://img.shields.io/github/issues-pr/RafaelGoulartB/nodejs-ecommerce?color=03B0E8" />
-  <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/RafaelGoulartB/nodejs-ecommerce?color=03B0E8" />
-  <img alt="" src="https://img.shields.io/github/repo-size/RafaelGoulartB/nodejs-ecommerce?color=03B0E8" />
+  <img alt="GitHub Pull Requests" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/pull-request.svg" />
+  <img alt="GitHub Contributors" style="width: auto; height: 20px" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/contributors.svg" />
+  <img alt="" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/repo-size.svg" />
 </p>
 
 > Ecommerce made with Node.js - MVC
