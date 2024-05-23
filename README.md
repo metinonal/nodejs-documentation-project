@@ -52,8 +52,8 @@
 </p>
 
 # :eyes: Demo Website
-👉  demo: https://pr1.metinonal.com.tr/
-    username: admin
+👉  demo: https://pr1.metinonal.com.tr/ <br />
+    username: admin <br />
     password: admin
 
 # :computer: Technologies
