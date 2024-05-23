@@ -28,9 +28,9 @@
 </div>
 
 <br />
-<div align="center">
+<!-- <div align="center">
   <img src="https://github.com/RafaelGoulartB/Ecommerce-Quantum/blob/master/Ecommerce.jpg" width="720">
-</div>
+</div> -->
 
 ---
 
@@ -52,7 +52,9 @@
 </p>
 
 # :eyes: Demo Website
-👉  demo: https://ecommerce-quantum.herokuapp.com/
+👉  demo: https://pr1.metinonal.com.tr/
+    username: admin
+    password: admin
 
 # :computer: Technologies
 This project was made using the follow technologies:
