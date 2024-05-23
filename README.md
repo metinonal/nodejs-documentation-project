@@ -44,17 +44,10 @@
 * [Contributing](#tada-contributing)
 * [License](#closed_book-license)
 
-<h2 align="left"> 📥 Layout available at: </h2>
-<p align="center">
-    <a title="Acess Figma Web" href="https://www.figma.com/file/fDLkOXAz4k3ILWb8PoDivJZF/E-Commerce-Quantum?node-id=0%3A1">
-        <img alt="Direct Download" src="https://img.shields.io/badge/Acess Figma Web-black?style=flat-square&logo=figma&logoColor=red" width="200px" />
-    </a>
-</p>
-
 # :eyes: Demo Website
 👉  demo: https://pr1.metinonal.com.tr/ <br />
-    username: admin <br />
-    password: admin
+👉  username: admin <br />
+👉  password: admin
 
 # :computer: Technologies
 This project was made using the follow technologies:
@@ -62,16 +55,13 @@ This project was made using the follow technologies:
   <li><a href="https://nodejs.org/en/">Node.js</a></li>
   <li><a href="https://expressjs.com/">Express</a></li>
   <li><a href="https://github.com/mysqljs/mysql">Mysql</a></li>
-  <li><a href="https://www.npmjs.com/package/express-handlebars">Express Handlebars</a></li>
-  <li><a href="https://eslint.org/">Eslint</a></li>
 </ul>   
 
 # :rocket: Features
 
-- List Products
-- Filter products by Category
-- Add products to Wishlist
-- Add products to Cart
+- List Documents and Details
+- CRUD Admin Panel
+- User Login
   
 # :construction_worker: How to run
 ## Install
@@ -83,11 +73,6 @@ npm install
 
 ```sh
 npm run start
-```
-## Dev Mode
-
-```sh
-npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
