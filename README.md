@@ -15,7 +15,7 @@
   </a>
   <img alt="GitHub Pull Requests" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/pull-request.svg" />
   <img alt="GitHub Contributors" style="width: auto; height: 20px" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/contributors.svg" />
-  <img alt="" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/repo-size.svg" />
+  <img alt="" style="width: auto; height: 20px" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/repo-size.svg" />
 </p>
 
 > Ecommerce made with Node.js - MVC
