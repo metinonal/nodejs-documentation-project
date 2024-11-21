@@ -1,25 +1,3 @@
-<h1 align="center">Documentation Website made with Node.js - MVC</h1>
-
-<p align="center">	
-   <a href="https://www.linkedin.com/in/metinonal3440/" target="_blank">
-      <img alt="Rafael Goulart" style="width: auto; height: 20px" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/linkedin.svg" />
-   </a>
-  <a href="https://github.com/metinonal/nodejs-documentation-project#readme">
-    <img alt="Documentation" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/documentation.svg" target="_blank" />
-  </a>
-  <a href="https://github.com/metinonal/nodejs-documentation-project/graphs/commit-activity">
-    <img alt="Maintenance" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/maintained.svg" target="_blank" />
-  </a>
-  <a href="https://github.com/metinonal/nodejs-documentation-project/blob/main/LICENSE">
-    <img alt="License: MIT" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/license.svg" target="_blank" />
-  </a>
-  <img alt="GitHub Pull Requests" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/pull-request.svg" />
-  <img alt="GitHub Contributors" style="width: auto; height: 20px" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/contributors.svg" />
-  <img alt="" style="width: auto; height: 20px" src="https://metinonal.s3.us-east-005.backblazeb2.com/metinonal.com.tr/nodejs-documentation-project/repo-size.svg" />
-</p>
-
-> Ecommerce made with Node.js - MVC
-
 
 <div align="center">
   <sub>The documentation project. Built with ❤︎ by
